@@ -13,10 +13,10 @@ var serverKey = 'AAAASgtMh-o:APA91bHlJlpKoH6Kk_hU4lWcMBOSYGwpg9fAQc1sT9KEZuTv6He
 var fcm = new FCM(serverKey);
 
 var pool = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'root',
-    database: 'mydb', 
+    host: 'qrcodescanner.coqa2ghc5ipd.us-east-2.rds.amazonaws.com',
+    user: 'qrcodescanner',
+    password: 'qrcodescanner',
+    database: '', 
     port: 3306,
     debug: true,
     connectTimeout: 30000,
