@@ -145,7 +145,7 @@ app.post('/postMacAddressAndQrcode', function (req, res) {
     });
 });
 
-app.post('/postMacAddressAndQrcode', function (req, res) {
+app.post('/getDistintMacaddressCount', function (req, res) {
     var query2 = "select count(distinct macAddress) from QRcodeScanner.user_info where _product_qr_code = "+ mysql.escape(req.body.qrcode);
     con.getConnection(function (err, connection) {
         if (err) {
