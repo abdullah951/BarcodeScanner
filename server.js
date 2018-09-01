@@ -101,7 +101,7 @@ app.get('/handle', function(req,res){
 });
 
 app.post('/getValidityofQrcode', function (req, res) {
-    var query = "select count(product_qr_code_id) from product_info where product_qr_code=" + mysql.escape(req.body.qrcode);
+    var query = "select count(product_qr_code_id) AS total from product_info where product_qr_code=" + mysql.escape(req.body.qrcode);
     var query2 = "Insert into user_info(name,phone_no,token,email) values(" + req.body.mac_address + "," + req.body.qrcode + ")";
     con.getConnection(function (err, connection) {
         if (err) {
@@ -135,7 +135,9 @@ app.post('/postMacAddressAndQrcode', function (req, res) {
 
         connection.query(query, function (err, result) {
             //connection.release();
-            
+            if(!err){
+                
+            }
         });
 
         connection.on('error', function (err) {
@@ -146,7 +148,7 @@ app.post('/postMacAddressAndQrcode', function (req, res) {
 });
 
 app.post('/getDistintMacaddressCount', function (req, res) {
-    var query2 = "select count(distinct macAddress) from QRcodeScanner.user_info where _product_qr_code = "+ mysql.escape(req.body.qrcode);
+    var query2 = "select count(distinct macAddress) AS total from QRcodeScanner.user_info where _product_qr_code = "+ mysql.escape(req.body.qrcode);
     con.getConnection(function (err, connection) {
         if (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
