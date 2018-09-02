@@ -16,7 +16,7 @@ var pool = mysql.createPool({
     host: 'qrcodescanner.coqa2ghc5ipd.us-east-2.rds.amazonaws.com',
     user: 'qrcodescanner',
     password: 'qrcodescanner',
-    database: '', 
+    database: 'QRcodeScanner', 
     port: 3306,
     debug: true,
     connectTimeout: 30000,
